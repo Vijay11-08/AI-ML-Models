@@ -2,7 +2,7 @@ Here is your **final polished, clean, and professional README.md** for your **Nu
 
 ---
 
-````markdown
+
 # 🚘 Number Plate Detection & OCR Recognition
 
 This project performs **Number Plate Detection** using OpenCV Haar cascades and extracts text from detected plates using **EasyOCR**. It features a **Tkinter GUI** for image uploads, displays detected plates with their recognized numbers, and saves results to an Excel file.
