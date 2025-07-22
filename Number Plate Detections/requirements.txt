@@ -1,0 +1,9 @@
+opencv-python
+ultralytics
+numpy
+torch
+python-dotenv
+Flask
+easyocr
+pandas
+openpyxl

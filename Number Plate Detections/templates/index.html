@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Number Plate Detection</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        input[type="file"] { margin: 20px; }
+        img { margin: 20px; max-width: 500px; border: 2px solid #444; }
+        table { margin: 0 auto; border-collapse: collapse; }
+        th, td { border: 1px solid #999; padding: 8px 12px; }
+        th { background: #eee; }
+    </style>
+</head>
+<body>
+    <h2>Number Plate Detection using EasyOCR</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <br>
+        <input type="submit" value="Upload and Process">
+    </form>
+
+    {% if uploaded_image_path %}
+        <h3>Uploaded Image</h3>
+        <img src="{{ url_for('static', filename=uploaded_image_path) }}" alt="Uploaded Image">
+    {% endif %}
+
+    {% if processed_image_path %}
+        <h3>Processed Image with Detected Number Plate</h3>
+        <img src="{{ url_for('static', filename=processed_image_path) }}" alt="Processed Image">
+    {% endif %}
+
+    {% if detected_data %}
+        <h3>Detected Number Plate Data</h3>
+        <table>
+            <tr>
+                <th>Number Plate</th>
+                <th>Country</th>
+            </tr>
+            {% for row in detected_data %}
+            <tr>
+                <td>{{ row['Number Plate'] }}</td>
+                <td>{{ row['Country'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>
